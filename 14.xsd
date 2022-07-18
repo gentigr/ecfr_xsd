@@ -14,9 +14,17 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="Authority">
+        <xs:sequence>
+            <xs:element name="HED" type="xs:string"/>
+            <xs:element name="PSPACE" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Part">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="AUTH" type="Authority"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:int" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required"/>
