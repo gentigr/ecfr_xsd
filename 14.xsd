@@ -71,7 +71,7 @@
             <xs:element name="DIV3" type="Chapter" maxOccurs="unbounded"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:int" use="required"/>
-        <xs:attribute name="TYPE" type="xs:string" use="required"/>
+        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="TITLE"/>
     </xs:complexType>
 
     <xs:complexType name="CodeOfFederalRegulations">
