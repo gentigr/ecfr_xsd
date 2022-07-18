@@ -21,6 +21,14 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="SubjectGroup">
+        <xs:sequence>
+            <xs:element name="HEAD" type="xs:string"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="N" type="xs:string" use="required"/>
+        <xs:attribute name="TYPE" type="xs:string" use="required"/>
+    </xs:complexType>
+
     <xs:complexType name="SubPart">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
