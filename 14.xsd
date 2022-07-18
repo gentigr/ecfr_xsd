@@ -53,7 +53,7 @@
             <xs:element name="DIV5" type="Part" maxOccurs="unbounded"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
-        <xs:attribute name="TYPE" type="xs:string" use="required"/>
+        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SUBCHAP"/>
     </xs:complexType>
 
     <xs:complexType name="Chapter">
