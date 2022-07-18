@@ -62,7 +62,7 @@
             <xs:element name="DIV4" type="SubChapter" maxOccurs="unbounded"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
-        <xs:attribute name="TYPE" type="xs:string" use="required"/>
+        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="CHAPTER"/>
     </xs:complexType>
 
     <xs:complexType name="Title">
