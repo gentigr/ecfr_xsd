@@ -39,6 +39,13 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="Source">
+        <xs:sequence>
+            <xs:element name="HED" type="xs:string"/>
+            <xs:element name="PSPACE" type="ParagraphSpace"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Note">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
@@ -120,6 +127,7 @@
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
             <xs:element name="AUTH" type="Authority"></xs:element>
+            <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
             <xs:choice>
                 <xs:element name="DIV6" type="SubPart" maxOccurs="unbounded"></xs:element>
                 <xs:element name="DIV8" type="Section" maxOccurs="unbounded"></xs:element>
