@@ -34,6 +34,19 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="Section">
+        <xs:sequence>
+            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:choice>
+                <xs:element name="P" type="Paragraph" maxOccurs="unbounded"/>
+                <xs:element name="NOTE" type="Note"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="N" type="xs:string" use="required"/>
+        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SECTION"/>
+        <xs:attribute name="VOLUME" type="xs:string" use="required"/>
+    </xs:complexType>
+
     <xs:complexType name="SubjectGroup">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
