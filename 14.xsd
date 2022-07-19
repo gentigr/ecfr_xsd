@@ -22,10 +22,20 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="ParagraphSpace" mixed="true">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="I" type="Emphasis"/>
+                <xs:element name="FR" type="Fraction"/>
+                <xs:element name="E" type="Font"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Authority">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
-            <xs:element name="PSPACE" type="xs:string"/>
+            <xs:element name="PSPACE" type="ParagraphSpace"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -51,7 +61,7 @@
     <xs:complexType name="EditorialNote">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
-            <xs:element name="PSPACE" type="xs:string"/>
+            <xs:element name="PSPACE" type="ParagraphSpace"/>
         </xs:sequence>
     </xs:complexType>
 
