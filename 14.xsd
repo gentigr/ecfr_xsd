@@ -35,6 +35,14 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="Citation">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="TYPE" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="Paragraph" mixed="true">
         <xs:sequence>
             <xs:element name="I" type="xs:string" maxOccurs="unbounded"/>
