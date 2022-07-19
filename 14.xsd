@@ -52,8 +52,8 @@
     <xs:complexType name="Section">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
-            <xs:choice>
-                <xs:element name="P" type="Paragraph" maxOccurs="unbounded"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="P" type="Paragraph"/>
                 <xs:element name="NOTE" type="Note"/>
             </xs:choice>
             <xs:element name="EDNOTE" type="EditorialNote"/>
