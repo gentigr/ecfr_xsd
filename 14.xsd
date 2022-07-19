@@ -45,7 +45,7 @@
 
     <xs:complexType name="Paragraph" mixed="true">
         <xs:sequence>
-            <xs:element name="I" type="xs:string" maxOccurs="unbounded"/>
+            <xs:element name="I" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
