@@ -48,6 +48,7 @@
                 <xs:element name="P" type="Paragraph" maxOccurs="unbounded"/>
                 <xs:element name="NOTE" type="Note"/>
             </xs:choice>
+            <xs:element name="EDNOTE" type="EditorialNote"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SECTION"/>
