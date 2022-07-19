@@ -21,6 +21,13 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="Note">
+        <xs:sequence>
+            <xs:element name="HED" type="xs:string"/>
+            <xs:element name="P" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="SubjectGroup">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
