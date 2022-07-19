@@ -78,6 +78,7 @@
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="I" type="Emphasis"/>
                 <xs:element name="FR" type="Fraction"/>
+                <xs:element name="E" type="Font"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
