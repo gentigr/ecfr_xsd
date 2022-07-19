@@ -65,6 +65,14 @@
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="CHAPTER"/>
     </xs:complexType>
 
+    <xs:complexType name="Subtitle">
+        <xs:sequence>
+            <xs:element name="HEAD" type="xs:string"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="N" type="xs:string" use="required"/>
+        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="DUBTITLE"/>
+    </xs:complexType>
+
     <xs:complexType name="Title">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
