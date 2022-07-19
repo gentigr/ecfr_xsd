@@ -28,6 +28,13 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="EditorialNote">
+        <xs:sequence>
+            <xs:element name="HED" type="xs:string"/>
+            <xs:element name="PSPACE" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Paragraph" mixed="true">
         <xs:sequence>
             <xs:element name="I" type="xs:string" maxOccurs="unbounded"/>
