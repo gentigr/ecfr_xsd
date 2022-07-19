@@ -97,7 +97,7 @@
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="NOTE" type="Note"/>
             </xs:choice>
-            <xs:element name="CITA" type="Citation"/>
+            <xs:element name="CITA" type="Citation" minOccurs="0"/>
             <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
