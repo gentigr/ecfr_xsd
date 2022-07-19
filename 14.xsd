@@ -14,6 +14,14 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="Font">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="T" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="Authority">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
