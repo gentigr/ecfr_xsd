@@ -13,6 +13,48 @@
     <xs:attribute name="scope" type="xs:string"/>
     <xs:attribute name="align" type="Alignment"/>
 
+    <xs:attributeGroup name="TableAttributesGroup">
+        <xs:attribute name="border" type="xs:integer"/>
+        <xs:attribute name="cellpadding" type="xs:string"/>
+        <xs:attribute name="cellspacing" type="xs:string"/>
+        <xs:attribute name="frame" type="xs:string"/>
+        <xs:attribute name="width" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:complexType name="TableCell">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="class" use="required"/>
+                <xs:attribute ref="scope"/>
+                <xs:attribute ref="align"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="TableHeaderCell">
+        <xs:simpleContent>
+            <xs:extension base="TableCell"></xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="TableStandardCell">
+        <xs:simpleContent>
+            <xs:extension base="TableCell"></xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="TableRow">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element name="TH" type="TableHeaderCell" maxOccurs="unbounded"/>
+                <xs:element name="TD" type="TableStandardCell" maxOccurs="unbounded"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Table">
+        <xs:sequence>
+            <xs:element name="TR" type="TableRow" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="class" type="xs:string"/>
+        <xs:attributeGroup ref="TableAttributesGroup"/>
+    </xs:complexType>
+
     <xs:complexType name="Volume">
         <xs:attribute name="N" type="xs:int" use="required"/>
         <xs:attribute name="AMDDATE" type="xs:date" use="required"/>
