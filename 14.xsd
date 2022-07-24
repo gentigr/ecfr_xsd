@@ -246,12 +246,13 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <xs:complexType name="SectionAuthority">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="TYPE" type="xs:string" use="required"/>
-            </xs:extension>
-        </xs:simpleContent>
+    <xs:complexType name="SectionAuthority" mixed="true">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="I" type="Emphasis"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="TYPE" type="xs:string" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="Quote">
