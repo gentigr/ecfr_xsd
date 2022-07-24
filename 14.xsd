@@ -74,6 +74,10 @@
         <xs:attribute name="RAW_AMDDATE" type="xs:string" use="required"/>
     </xs:complexType>
 
+    <xs:complexType name="Image">
+        <xs:attribute name="src" type="xs:string" use="required"/>
+    </xs:complexType>
+
     <xs:complexType name="AmendmentDate">
         <xs:simpleContent>
             <xs:extension base="xs:string">
