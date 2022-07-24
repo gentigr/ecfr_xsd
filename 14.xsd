@@ -173,45 +173,45 @@
     </xs:complexType>
 
     <xs:complexType name="SuperScript">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="ParagraphSpace"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Heading1">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="ParagraphSpace"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Heading2">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="ParagraphSpace"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Heading3">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="ParagraphSpace"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Heading4">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="ParagraphSpace"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Heading5">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="ParagraphSpace"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Heading6">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="ParagraphSpace"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Emphasis" mixed="true">
