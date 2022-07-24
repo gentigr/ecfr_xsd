@@ -122,6 +122,8 @@
                 <xs:element name="FR" type="Fraction"/>
                 <xs:element name="fr" type="Fraction"/>
                 <xs:element name="E" type="Font"/>
+                <xs:element name="SU" type="SuperScript"/>
+                <xs:element name="FTREF" type="FootNoteReference"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
@@ -130,11 +132,21 @@
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="E" type="Font"/>
+                <xs:element name="I" type="Emphasis"/>
+                <xs:element name="SU" type="SuperScript"/>
+                <xs:element name="FTREF" type="FootNoteReference"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="Authority">
+        <xs:sequence>
+            <xs:element name="HED" type="xs:string"/>
+            <xs:element name="PSPACE" type="ParagraphSpace"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Example">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
             <xs:element name="PSPACE" type="ParagraphSpace"/>
@@ -164,7 +176,10 @@
     <xs:complexType name="Note">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
-            <xs:element name="P" type="Paragraph" maxOccurs="unbounded"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="P" type="Paragraph"/>
+                <xs:element name="FP" type="FlushParagraph"/>
+            </xs:choice>
         </xs:sequence>
     </xs:complexType>
 
@@ -276,7 +291,7 @@
         <xs:attribute name="TYPE" type="xs:string" use="required"/>
     </xs:complexType>
 
-    <xs:complexType name="CrossReference" mixed="true">
+    <xs:complexType name="XReference" mixed="true">
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="I" type="Emphasis"/>
@@ -286,9 +301,20 @@
         <xs:attribute name="REFID" type="xs:string" use="required"/>
     </xs:complexType>
 
+    <xs:complexType name="CrossReference" mixed="true">
+        <xs:sequence>
+            <xs:element name="HED" type="xs:string"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="PSPACE" type="ParagraphSpace"/>
+                <xs:element name="P" type="Paragraph"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Quote">
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="NOTE" type="Note"/>
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="P2" type="Paragraph2"/>
                 <xs:element name="FP" type="FlushParagraph"/>
@@ -299,9 +325,18 @@
                 <xs:element name="FP2" type="FlushParagraphTurnover2"/>
                 <xs:element name="FP2-2" type="FlushParagraph2Turnover2"/>
                 <xs:element name="FP2-3" type="FlushParagraph2Turnover3"/>
+                <xs:element name="HD1" type="Heading1"/>
+                <xs:element name="HD2" type="Heading2"/>
+                <xs:element name="HD3" type="Heading3"/>
+                <xs:element name="HD4" type="Heading4"/>
+                <xs:element name="HD5" type="Heading5"/>
+                <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="MATH" type="Math"/>
                 <xs:element name="img" type="Image"/>
-                <xs:element name="XREF" type="CrossReference"/>
+                <xs:element name="XREF" type="XReference"/>
+                <xs:element name="CITA" type="Citation" minOccurs="0"/>
+                <xs:element name="FTNT" type="FootNote"/>
+                <xs:element name="DIV" type="Division"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
@@ -384,8 +419,8 @@
 
     <xs:complexType name="Appendix">
         <xs:sequence>
-            <xs:element name="HEAD" type="Head"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="HEAD" type="Head"/>
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="P2" type="Paragraph2"/>
                 <xs:element name="FTNT" type="FootNote"/>
@@ -407,13 +442,13 @@
                 <xs:element name="HD5" type="Heading5"/>
                 <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="img" type="Image"/>
-                <xs:element name="XREF" type="CrossReference"/>
+                <xs:element name="XREF" type="XReference"/>
                 <xs:element name="APPRO" type="Approval"/>
+                <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
+                <xs:element name="CITA" type="Citation" minOccurs="0"/>
+                <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
+                <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
             </xs:choice>
-            <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
-            <xs:element name="CITA" type="Citation" minOccurs="0"/>
-            <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
-            <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="APPENDIX"/>
@@ -446,13 +481,14 @@
                 <xs:element name="HD5" type="Heading5"/>
                 <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="img" type="Image"/>
-                <xs:element name="XREF" type="CrossReference"/>
+                <xs:element name="XREF" type="XReference"/>
                 <xs:element name="APPRO" type="Approval"/>
+                <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
+                <xs:element name="CITA" type="Citation" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
+                <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
+                <xs:element name="EXAMPLE" type="Example" minOccurs="0"/>
             </xs:choice>
-            <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
-            <xs:element name="CITA" type="Citation" minOccurs="0"/>
-            <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
-            <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SECTION"/>
@@ -462,7 +498,7 @@
     <xs:complexType name="SubjectGroup">
         <xs:sequence>
             <xs:element name="HEAD" type="Head"/>
-            <xs:element name="DIV8" type="Section" maxOccurs="unbounded"/>
+            <xs:element name="DIV8" type="Section" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SUBJGRP"/>
@@ -470,12 +506,21 @@
 
     <xs:complexType name="SubPart">
         <xs:sequence>
-            <xs:element name="HEAD" type="Head"/>
-            <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
-            <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="HEAD" type="Head"/>
+                <xs:element name="AUTH" type="Authority" minOccurs="0"/>
+                <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
+                <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
+                <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
+                <xs:element name="HD1" type="Heading1"/>
+                <xs:element name="HD2" type="Heading2"/>
+                <xs:element name="HD3" type="Heading3"/>
+                <xs:element name="HD4" type="Heading4"/>
+                <xs:element name="HD5" type="Heading5"/>
+                <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="DIV7" type="SubjectGroup"/>
                 <xs:element name="DIV8" type="Section"/>
+                <xs:element name="DIV9" type="Appendix"/>
             </xs:choice>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
@@ -484,16 +529,18 @@
 
     <xs:complexType name="Part">
         <xs:sequence>
-            <xs:element name="HEAD" type="Head"/>
-            <xs:element name="XREF" type="CrossReference" minOccurs="0"/>
-            <xs:element name="AUTH" type="Authority" minOccurs="0"/>
-            <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
-            <xs:element name="NOTE" type="Note" minOccurs="0"/>
-            <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="HEAD" type="Head"/>
+                <xs:element name="XREF" type="XReference" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="CROSSREF" type="CrossReference" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="AUTH" type="Authority" minOccurs="0"/>
+                <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
+                <xs:element name="NOTE" type="Note" minOccurs="0"/>
+                <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
                 <xs:element name="DIV9" type="Appendix" maxOccurs="unbounded"/>
                 <xs:element name="DIV6" type="SubPart" maxOccurs="unbounded"/>
                 <xs:element name="DIV8" type="Section" maxOccurs="unbounded"/>
+                <xs:element name="DIV7" type="SubjectGroup" maxOccurs="unbounded"/>
             </xs:choice>
             <xs:element name="DIV9" type="Appendix" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -505,7 +552,7 @@
     <xs:complexType name="SubChapter">
         <xs:sequence>
             <xs:element name="HEAD" type="Head"/>
-            <xs:element name="DIV5" type="Part" maxOccurs="unbounded"/>
+            <xs:element name="DIV5" type="Part" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SUBCHAP"/>
@@ -514,7 +561,10 @@
     <xs:complexType name="Chapter">
         <xs:sequence>
             <xs:element name="HEAD" type="Head"/>
-            <xs:element name="DIV4" type="SubChapter" maxOccurs="unbounded"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="DIV4" type="SubChapter"/>
+                <xs:element name="DIV5" type="Part"/>
+            </xs:choice>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="CHAPTER"/>
