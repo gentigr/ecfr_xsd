@@ -94,6 +94,14 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="Accent">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="T" type="xs:int" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="ParagraphSpace" mixed="true">
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -259,6 +267,7 @@
                 <xs:element name="sup" type="SuperScript"/>
                 <xs:element name="SU" type="SuperScript"/>
                 <xs:element name="FTREF" type="FootNoteReference"/>
+                <xs:element name="AC" type="Accent"/>
             </xs:choice>
         </xs:sequence>
         <xs:attribute ref="class"/>
