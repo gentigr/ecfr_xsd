@@ -166,6 +166,14 @@
         </xs:complexContent>
     </xs:complexType>
 
+    <xs:complexType name="Division">
+        <xs:sequence>
+            <xs:element name="TABLE" type="Table"/>
+        </xs:sequence>
+        <xs:attribute name="width" type="xs:string"/>
+        <xs:attribute name="class" type="xs:string"/>
+    </xs:complexType>
+
     <xs:complexType name="Section">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
