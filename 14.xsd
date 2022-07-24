@@ -154,6 +154,15 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="Quote">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="P" type="Paragraph"/>
+                <xs:element name="FP" type="IndentParagraph"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Paragraph" mixed="true">
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -190,6 +199,7 @@
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="DIV" type="Division"/>
                 <xs:element name="FP" type="IndentParagraph"/>
+                <xs:element name="EXTRACT" type="Quote"/>
                 <xs:element name="NOTE" type="Note"/>
             </xs:choice>
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
