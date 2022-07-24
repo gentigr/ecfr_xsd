@@ -127,6 +127,42 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="Heading1">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Heading2">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Heading3">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Heading4">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Heading5">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Heading6">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="Emphasis" mixed="true">
         <xs:sequence>
             <xs:element name="FR" type="Fraction" minOccurs="0" maxOccurs="unbounded"/>
@@ -209,6 +245,12 @@
             <xs:element name="HEAD" type="xs:string"></xs:element>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
+                <xs:element name="HD1" type="Heading1"/>
+                <xs:element name="HD2" type="Heading2"/>
+                <xs:element name="HD3" type="Heading3"/>
+                <xs:element name="HD4" type="Heading4"/>
+                <xs:element name="HD5" type="Heading5"/>
+                <xs:element name="HD6" type="Heading6"/>
             </xs:choice>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
         </xs:sequence>
@@ -226,6 +268,12 @@
                 <xs:element name="FP" type="IndentParagraph"/>
                 <xs:element name="EXTRACT" type="Quote"/>
                 <xs:element name="NOTE" type="Note"/>
+                <xs:element name="HD1" type="Heading1"/>
+                <xs:element name="HD2" type="Heading2"/>
+                <xs:element name="HD3" type="Heading3"/>
+                <xs:element name="HD4" type="Heading4"/>
+                <xs:element name="HD5" type="Heading5"/>
+                <xs:element name="HD6" type="Heading6"/>
             </xs:choice>
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
