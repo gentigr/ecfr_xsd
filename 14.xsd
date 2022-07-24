@@ -214,7 +214,10 @@
 
     <xs:complexType name="Emphasis" mixed="true">
         <xs:sequence>
-            <xs:element name="FR" type="Fraction" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="AC" type="Accent"/>
+                <xs:element name="FR" type="Fraction"/>
+            </xs:choice>
         </xs:sequence>
     </xs:complexType>
 
