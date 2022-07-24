@@ -119,6 +119,12 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="SuperScript">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="Emphasis" mixed="true">
         <xs:sequence>
             <xs:element name="FR" type="Fraction" minOccurs="0" maxOccurs="unbounded"/>
@@ -174,6 +180,7 @@
                 <xs:element name="FR" type="Fraction"/>
                 <xs:element name="E" type="Font"/>
                 <xs:element name="br" type="LineBrake"/>
+                <xs:element name="sup" type="SuperScript"/>
             </xs:choice>
         </xs:sequence>
         <xs:attribute ref="class"/>
