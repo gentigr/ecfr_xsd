@@ -259,6 +259,7 @@
             <xs:element name="HEAD" type="xs:string"></xs:element>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
+                <xs:element name="FTNT" type="FootNote"/>
                 <xs:element name="HD1" type="Heading1"/>
                 <xs:element name="HD2" type="Heading2"/>
                 <xs:element name="HD3" type="Heading3"/>
