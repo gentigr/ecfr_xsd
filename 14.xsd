@@ -475,6 +475,7 @@
     <xs:complexType name="Part">
         <xs:sequence>
             <xs:element name="HEAD" type="Head"/>
+            <xs:element name="XREF" type="CrossReference" minOccurs="0"/>
             <xs:element name="AUTH" type="Authority" minOccurs="0"/>
             <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
             <xs:element name="NOTE" type="Note" minOccurs="0"/>
