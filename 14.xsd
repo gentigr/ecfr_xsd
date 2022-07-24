@@ -10,6 +10,7 @@
     </xs:simpleType>
 
     <xs:attribute name="class" type="xs:string"/>
+    <xs:attribute name="style" type="xs:string"/>
     <xs:attribute name="scope" type="xs:string"/>
     <xs:attribute name="align" type="Alignment"/>
 
@@ -31,6 +32,7 @@
             <xs:extension base="Paragraph">
                 <xs:attribute ref="scope"/>
                 <xs:attribute ref="align"/>
+                <xs:attribute ref="style"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
