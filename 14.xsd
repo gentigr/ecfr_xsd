@@ -277,6 +277,7 @@
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="FTNT" type="FootNote"/>
+                <xs:element name="MATH" type="Math"/>
                 <xs:element name="NOTE" type="Note"/>
                 <xs:element name="HD1" type="Heading1"/>
                 <xs:element name="HD2" type="Heading2"/>
@@ -298,6 +299,7 @@
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="FTNT" type="FootNote"/>
+                <xs:element name="MATH" type="Math"/>
                 <xs:element name="DIV" type="Division"/>
                 <xs:element name="FP" type="IndentParagraph"/>
                 <xs:element name="EXTRACT" type="Quote"/>
