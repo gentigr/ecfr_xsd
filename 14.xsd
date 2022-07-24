@@ -127,6 +127,12 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:complexType name="FootNote">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="SuperScript">
         <xs:simpleContent>
             <xs:extension base="xs:string"/>
