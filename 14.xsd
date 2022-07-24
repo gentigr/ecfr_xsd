@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="Alignment">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="right"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:attribute name="class" type="xs:string"/>
+    <xs:attribute name="scope" type="xs:string"/>
+    <xs:attribute name="align" type="Alignment"/>
+
     <xs:complexType name="Volume">
         <xs:attribute name="N" type="xs:int" use="required"/>
         <xs:attribute name="AMDDATE" type="xs:date" use="required"/>
