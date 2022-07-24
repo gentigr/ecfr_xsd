@@ -90,11 +90,18 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="IndentParagraph" mixed="true">
+        <xs:complexContent>
+            <xs:extension base="Paragraph"/>
+        </xs:complexContent>
+    </xs:complexType>
+
     <xs:complexType name="Section">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
+                <xs:element name="FP" type="IndentParagraph"/>
                 <xs:element name="NOTE" type="Note"/>
             </xs:choice>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
