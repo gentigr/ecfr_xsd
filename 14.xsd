@@ -242,6 +242,7 @@
                 <xs:element name="FP2" type="FlushParagraphTurnover2"/>
                 <xs:element name="FP2-2" type="FlushParagraph2Turnover2"/>
                 <xs:element name="FP2-3" type="FlushParagraph2Turnover3"/>
+                <xs:element name="MATH" type="Math"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
