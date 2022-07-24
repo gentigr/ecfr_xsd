@@ -12,6 +12,8 @@
     <xs:attribute name="class" type="xs:string"/>
     <xs:attribute name="style" type="xs:string"/>
     <xs:attribute name="scope" type="xs:string"/>
+    <xs:attribute name="rowspan" type="xs:int"/>
+    <xs:attribute name="colspan" type="xs:int"/>
     <xs:attribute name="align" type="Alignment"/>
 
     <xs:simpleType name="LineBrake">
@@ -39,6 +41,8 @@
                 <xs:attribute ref="scope"/>
                 <xs:attribute ref="align"/>
                 <xs:attribute ref="style"/>
+                <xs:attribute ref="rowspan"/>
+                <xs:attribute ref="colspan"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
