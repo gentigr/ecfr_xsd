@@ -475,7 +475,7 @@
     <xs:complexType name="Part">
         <xs:sequence>
             <xs:element name="HEAD" type="Head"/>
-            <xs:element name="AUTH" type="Authority"/>
+            <xs:element name="AUTH" type="Authority" minOccurs="0"/>
             <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
             <xs:element name="NOTE" type="Note" minOccurs="0"/>
             <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
