@@ -241,6 +241,16 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="EffectiveDateNote">
+        <xs:sequence>
+            <xs:element name="HED" type="xs:string"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="PSPACE" type="ParagraphSpace"/>
+                <xs:element name="P" type="Paragraph"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Citation">
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -386,6 +396,7 @@
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
             <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
+            <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="APPENDIX"/>
@@ -422,6 +433,7 @@
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
             <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
+            <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SECTION"/>
