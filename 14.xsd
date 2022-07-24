@@ -232,6 +232,7 @@
                 <xs:element name="br" type="LineBrake"/>
                 <xs:element name="sup" type="SuperScript"/>
                 <xs:element name="SU" type="SuperScript"/>
+                <xs:element name="FTREF" type="FootNoteReference"/>
             </xs:choice>
         </xs:sequence>
         <xs:attribute ref="class"/>
