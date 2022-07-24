@@ -249,7 +249,7 @@
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
             <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
-            <xs:choice maxOccurs="unbounded">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="DIV7" type="SubjectGroup"/>
                 <xs:element name="DIV8" type="Section"/>
             </xs:choice>
