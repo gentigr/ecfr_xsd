@@ -99,6 +99,14 @@
         <xs:attribute name="T" type="xs:string" use="required"/>
     </xs:complexType>
 
+    <xs:complexType name="Approval" mixed="true">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="TYPE" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="Accent">
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -392,6 +400,7 @@
                 <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="img" type="Image"/>
                 <xs:element name="XREF" type="CrossReference"/>
+                <xs:element name="APPRO" type="Approval"/>
             </xs:choice>
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
@@ -429,6 +438,7 @@
                 <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="img" type="Image"/>
                 <xs:element name="XREF" type="CrossReference"/>
+                <xs:element name="APPRO" type="Approval"/>
             </xs:choice>
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
