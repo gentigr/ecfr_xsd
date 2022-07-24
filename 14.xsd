@@ -167,9 +167,10 @@
     </xs:complexType>
 
     <xs:complexType name="Division">
-        <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element name="TABLE" type="Table"/>
-        </xs:sequence>
+            <xs:element name="DIV" type="Division"/>
+        </xs:choice>
         <xs:attribute name="width" type="xs:string"/>
         <xs:attribute name="class" type="xs:string"/>
     </xs:complexType>
