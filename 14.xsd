@@ -344,6 +344,7 @@
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="FTNT" type="FootNote"/>
                 <xs:element name="MATH" type="Math"/>
+                <xs:element name="DIV" type="Division"/>
                 <xs:element name="NOTE" type="Note"/>
                 <xs:element name="FP" type="FlushParagraph"/>
                 <xs:element name="FP-1" type="FlushParagraphTurnover1"/>
