@@ -255,6 +255,16 @@
         <xs:attribute name="TYPE" type="xs:string" use="required"/>
     </xs:complexType>
 
+    <xs:complexType name="CrossReference" mixed="true">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="I" type="Emphasis"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:string" use="required"/>
+        <xs:attribute name="REFID" type="xs:string" use="required"/>
+    </xs:complexType>
+
     <xs:complexType name="Quote">
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -269,6 +279,7 @@
                 <xs:element name="FP2-3" type="FlushParagraph2Turnover3"/>
                 <xs:element name="MATH" type="Math"/>
                 <xs:element name="img" type="Image"/>
+                <xs:element name="XREF" type="CrossReference"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
@@ -366,6 +377,7 @@
                 <xs:element name="HD5" type="Heading5"/>
                 <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="img" type="Image"/>
+                <xs:element name="XREF" type="CrossReference"/>
             </xs:choice>
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
@@ -401,6 +413,7 @@
                 <xs:element name="HD5" type="Heading5"/>
                 <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="img" type="Image"/>
+                <xs:element name="XREF" type="CrossReference"/>
             </xs:choice>
             <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
