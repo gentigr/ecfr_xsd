@@ -29,7 +29,6 @@
     <xs:complexType name="TableCell">
         <xs:complexContent>
             <xs:extension base="Paragraph">
-                <xs:attribute ref="class" use="required"/>
                 <xs:attribute ref="scope"/>
                 <xs:attribute ref="align"/>
             </xs:extension>
@@ -165,6 +164,7 @@
                 <xs:element name="br" type="LineBrake"/>
             </xs:choice>
         </xs:sequence>
+        <xs:attribute ref="class"/>
     </xs:complexType>
 
     <xs:complexType name="IndentParagraph" mixed="true">
