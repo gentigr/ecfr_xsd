@@ -177,6 +177,7 @@
         <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element name="TABLE" type="Table"/>
             <xs:element name="DIV" type="Division"/>
+            <xs:element name="P" type="Paragraph"/>
         </xs:choice>
         <xs:attribute name="width" type="xs:string"/>
         <xs:attribute name="class" type="xs:string"/>
