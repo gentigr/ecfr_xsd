@@ -201,6 +201,7 @@
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
             </xs:choice>
+            <xs:element name="CITA" type="Citation" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="APPENDIX"/>
