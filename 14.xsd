@@ -20,6 +20,12 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="FootNoteReference">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:attributeGroup name="TableAttributesGroup">
         <xs:attribute name="border" type="xs:integer"/>
         <xs:attribute name="cellpadding" type="xs:string"/>
