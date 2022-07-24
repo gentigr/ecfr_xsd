@@ -118,6 +118,19 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="Math">
+        <xs:sequence>
+            <xs:element name="img" type="Image"/>
+        </xs:sequence>
+        <xs:attribute name="BORDER" type="xs:string" use="required"/>
+        <xs:attribute name="DEEP" type="xs:string" use="required"/>
+        <xs:attribute name="HTYPE" type="xs:string" use="required"/>
+        <xs:attribute name="POSITION" type="xs:string" use="required"/>
+        <xs:attribute name="ROTATION" type="xs:string" use="required"/>
+        <xs:attribute name="SPAN" type="xs:string" use="required"/>
+        <xs:attribute name="STRIP" type="xs:string" use="required"/>
+    </xs:complexType>
+
     <xs:complexType name="Note">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
