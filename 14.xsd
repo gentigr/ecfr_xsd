@@ -311,12 +311,16 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="Quote">
+    <xs:group name="ContentOrganizers">
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="NOTE" type="Note"/>
+                <xs:element name="HEAD" type="Head"/>
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="P2" type="Paragraph2"/>
+                <xs:element name="FTNT" type="FootNote"/>
+                <xs:element name="MATH" type="Math"/>
+                <xs:element name="DIV" type="Division"/>
+                <xs:element name="NOTE" type="Note"/>
                 <xs:element name="FP" type="FlushParagraph"/>
                 <xs:element name="FP-1" type="FlushParagraphTurnover1"/>
                 <xs:element name="FP-2" type="FlushParagraphTurnover2"/>
@@ -331,14 +335,21 @@
                 <xs:element name="HD4" type="Heading4"/>
                 <xs:element name="HD5" type="Heading5"/>
                 <xs:element name="HD6" type="Heading6"/>
-                <xs:element name="MATH" type="Math"/>
                 <xs:element name="img" type="Image"/>
                 <xs:element name="XREF" type="XReference"/>
-                <xs:element name="CITA" type="Citation" minOccurs="0"/>
-                <xs:element name="FTNT" type="FootNote"/>
-                <xs:element name="DIV" type="Division"/>
+                <xs:element name="APPRO" type="Approval"/>
+                <xs:element name="SECAUTH" type="SectionAuthority"/>
+                <xs:element name="CITA" type="Citation"/>
+                <xs:element name="EDNOTE" type="EditorialNote"/>
+                <xs:element name="EFFDNOT" type="EffectiveDateNote"/>
+                <xs:element name="EXTRACT" type="Quote"/>
+                <xs:element name="EXAMPLE" type="Example"/>
             </xs:choice>
         </xs:sequence>
+    </xs:group>
+
+    <xs:complexType name="Quote">
+        <xs:group ref="ContentOrganizers"/>
     </xs:complexType>
 
     <xs:complexType name="Paragraph" mixed="true">
@@ -417,82 +428,26 @@
         <xs:attribute name="class" type="xs:string"/>
     </xs:complexType>
 
-    <xs:complexType name="Appendix">
-        <xs:sequence>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="HEAD" type="Head"/>
-                <xs:element name="P" type="Paragraph"/>
-                <xs:element name="P2" type="Paragraph2"/>
-                <xs:element name="FTNT" type="FootNote"/>
-                <xs:element name="MATH" type="Math"/>
-                <xs:element name="DIV" type="Division"/>
-                <xs:element name="NOTE" type="Note"/>
-                <xs:element name="FP" type="FlushParagraph"/>
-                <xs:element name="FP-1" type="FlushParagraphTurnover1"/>
-                <xs:element name="FP-2" type="FlushParagraphTurnover2"/>
-                <xs:element name="FP-DASH" type="FlushParagraphDash"/>
-                <xs:element name="FP1-2" type="FlushParagraph1Turnover2"/>
-                <xs:element name="FP2" type="FlushParagraphTurnover2"/>
-                <xs:element name="FP2-2" type="FlushParagraph2Turnover2"/>
-                <xs:element name="FP2-3" type="FlushParagraph2Turnover3"/>
-                <xs:element name="HD1" type="Heading1"/>
-                <xs:element name="HD2" type="Heading2"/>
-                <xs:element name="HD3" type="Heading3"/>
-                <xs:element name="HD4" type="Heading4"/>
-                <xs:element name="HD5" type="Heading5"/>
-                <xs:element name="HD6" type="Heading6"/>
-                <xs:element name="img" type="Image"/>
-                <xs:element name="XREF" type="XReference"/>
-                <xs:element name="APPRO" type="Approval"/>
-                <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
-                <xs:element name="CITA" type="Citation" minOccurs="0"/>
-                <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
-                <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
-            </xs:choice>
-        </xs:sequence>
+    <xs:complexType name="Container">
+        <xs:group ref="ContentOrganizers"/>
         <xs:attribute name="N" type="xs:string" use="required"/>
-        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="APPENDIX"/>
         <xs:attribute name="VOLUME" type="xs:string" use="required"/>
     </xs:complexType>
 
+    <xs:complexType name="Appendix">
+        <xs:complexContent>
+            <xs:extension base="Container">
+                <xs:attribute name="TYPE" type="xs:string" use="required" fixed="APPENDIX"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
     <xs:complexType name="Section">
-        <xs:sequence>
-            <xs:element name="HEAD" type="Head"/>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="P" type="Paragraph"/>
-                <xs:element name="P2" type="Paragraph2"/>
-                <xs:element name="FTNT" type="FootNote"/>
-                <xs:element name="MATH" type="Math"/>
-                <xs:element name="DIV" type="Division"/>
-                <xs:element name="FP" type="FlushParagraph"/>
-                <xs:element name="FP-1" type="FlushParagraphTurnover1"/>
-                <xs:element name="FP-2" type="FlushParagraphTurnover2"/>
-                <xs:element name="FP-DASH" type="FlushParagraphDash"/>
-                <xs:element name="FP1-2" type="FlushParagraph1Turnover2"/>
-                <xs:element name="FP2" type="FlushParagraphTurnover2"/>
-                <xs:element name="FP2-2" type="FlushParagraph2Turnover2"/>
-                <xs:element name="FP2-3" type="FlushParagraph2Turnover3"/>
-                <xs:element name="EXTRACT" type="Quote"/>
-                <xs:element name="NOTE" type="Note"/>
-                <xs:element name="HD1" type="Heading1"/>
-                <xs:element name="HD2" type="Heading2"/>
-                <xs:element name="HD3" type="Heading3"/>
-                <xs:element name="HD4" type="Heading4"/>
-                <xs:element name="HD5" type="Heading5"/>
-                <xs:element name="HD6" type="Heading6"/>
-                <xs:element name="img" type="Image"/>
-                <xs:element name="XREF" type="XReference"/>
-                <xs:element name="APPRO" type="Approval"/>
-                <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
-                <xs:element name="CITA" type="Citation" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
-                <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
-                <xs:element name="EXAMPLE" type="Example" minOccurs="0"/>
-            </xs:choice>
-        </xs:sequence>
-        <xs:attribute name="N" type="xs:string" use="required"/>
-        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SECTION"/>
-        <xs:attribute name="VOLUME" type="xs:string" use="required"/>
+        <xs:complexContent>
+            <xs:extension base="Container">
+                <xs:attribute name="TYPE" type="xs:string" use="required" fixed="SECTION"/>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="SubjectGroup">
@@ -513,11 +468,6 @@
                 <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
                 <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
                 <xs:element name="HD1" type="Heading1"/>
-                <xs:element name="HD2" type="Heading2"/>
-                <xs:element name="HD3" type="Heading3"/>
-                <xs:element name="HD4" type="Heading4"/>
-                <xs:element name="HD5" type="Heading5"/>
-                <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="DIV7" type="SubjectGroup"/>
                 <xs:element name="DIV8" type="Section"/>
                 <xs:element name="DIV9" type="Appendix"/>
@@ -542,7 +492,6 @@
                 <xs:element name="DIV8" type="Section" maxOccurs="unbounded"/>
                 <xs:element name="DIV7" type="SubjectGroup" maxOccurs="unbounded"/>
             </xs:choice>
-            <xs:element name="DIV9" type="Appendix" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="PART"/>
