@@ -486,7 +486,7 @@
             </xs:choice>
             <xs:element name="DIV9" type="Appendix" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="N" type="xs:int" use="required"/>
+        <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="PART"/>
         <xs:attribute name="VOLUME" type="xs:string" use="required"/>
     </xs:complexType>
