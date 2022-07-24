@@ -366,6 +366,7 @@
                 <xs:element name="HD6" type="Heading6"/>
                 <xs:element name="img" type="Image"/>
             </xs:choice>
+            <xs:element name="SECAUTH" type="SectionAuthority" minOccurs="0"/>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
             <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
         </xs:sequence>
