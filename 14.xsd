@@ -363,6 +363,7 @@
                 <xs:element name="img" type="Image"/>
             </xs:choice>
             <xs:element name="CITA" type="Citation" minOccurs="0"/>
+            <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="APPENDIX"/>
