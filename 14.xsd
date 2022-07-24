@@ -192,6 +192,18 @@
         <xs:attribute name="class" type="xs:string"/>
     </xs:complexType>
 
+    <xs:complexType name="Appendix">
+        <xs:sequence>
+            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="P" type="Paragraph"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="N" type="xs:string" use="required"/>
+        <xs:attribute name="TYPE" type="xs:string" use="required" fixed="APPENDIX"/>
+        <xs:attribute name="VOLUME" type="xs:string" use="required"/>
+    </xs:complexType>
+
     <xs:complexType name="Section">
         <xs:sequence>
             <xs:element name="HEAD" type="xs:string"></xs:element>
@@ -243,6 +255,7 @@
                 <xs:element name="DIV6" type="SubPart" maxOccurs="unbounded"></xs:element>
                 <xs:element name="DIV8" type="Section" maxOccurs="unbounded"></xs:element>
             </xs:choice>
+            <xs:element name="DIV9" type="Appendix" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="N" type="xs:int" use="required"/>
         <xs:attribute name="TYPE" type="xs:string" use="required" fixed="PART"/>
