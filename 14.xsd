@@ -90,12 +90,13 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <xs:complexType name="Font">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="T" type="xs:string" use="required"/>
-            </xs:extension>
-        </xs:simpleContent>
+    <xs:complexType name="Font" mixed="true">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="AC" type="Accent"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="T" type="xs:string" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="Accent">
