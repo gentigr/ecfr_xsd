@@ -21,23 +21,23 @@
         <xs:attribute name="width" type="xs:string"/>
     </xs:attributeGroup>
     <xs:complexType name="TableCell">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
+        <xs:complexContent>
+            <xs:extension base="Paragraph">
                 <xs:attribute ref="class" use="required"/>
                 <xs:attribute ref="scope"/>
                 <xs:attribute ref="align"/>
             </xs:extension>
-        </xs:simpleContent>
+        </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="TableHeaderCell">
-        <xs:simpleContent>
-            <xs:extension base="TableCell"></xs:extension>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="TableCell"/>
+        </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="TableStandardCell">
-        <xs:simpleContent>
-            <xs:extension base="TableCell"></xs:extension>
-        </xs:simpleContent>
+        <xs:complexContent>
+            <xs:extension base="TableCell"/>
+        </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="TableRow">
         <xs:sequence>
