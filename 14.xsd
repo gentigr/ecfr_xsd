@@ -345,6 +345,14 @@
                 <xs:element name="FTNT" type="FootNote"/>
                 <xs:element name="MATH" type="Math"/>
                 <xs:element name="NOTE" type="Note"/>
+                <xs:element name="FP" type="FlushParagraph"/>
+                <xs:element name="FP-1" type="FlushParagraphTurnover1"/>
+                <xs:element name="FP-2" type="FlushParagraphTurnover2"/>
+                <xs:element name="FP-DASH" type="FlushParagraphDash"/>
+                <xs:element name="FP1-2" type="FlushParagraph1Turnover2"/>
+                <xs:element name="FP2" type="FlushParagraphTurnover2"/>
+                <xs:element name="FP2-2" type="FlushParagraph2Turnover2"/>
+                <xs:element name="FP2-3" type="FlushParagraph2Turnover3"/>
                 <xs:element name="HD1" type="Heading1"/>
                 <xs:element name="HD2" type="Heading2"/>
                 <xs:element name="HD3" type="Heading3"/>
