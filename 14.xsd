@@ -278,6 +278,7 @@
             <xs:element name="HEAD" type="xs:string"></xs:element>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
+                <xs:element name="FTNT" type="FootNote"/>
                 <xs:element name="DIV" type="Division"/>
                 <xs:element name="FP" type="IndentParagraph"/>
                 <xs:element name="EXTRACT" type="Quote"/>
