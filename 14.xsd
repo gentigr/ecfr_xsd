@@ -154,7 +154,7 @@
     <xs:complexType name="Note">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
-            <xs:element name="P" type="xs:string" maxOccurs="unbounded"/>
+            <xs:element name="P" type="Paragraph" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
