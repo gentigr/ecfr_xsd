@@ -115,28 +115,33 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <xs:complexType name="ParagraphSpace" mixed="true">
+    <xs:complexType name="ContentFormatter" mixed="true">
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="B" type="Bold"/>
                 <xs:element name="I" type="Emphasis"/>
                 <xs:element name="FR" type="Fraction"/>
                 <xs:element name="fr" type="Fraction"/>
                 <xs:element name="E" type="Font"/>
+                <xs:element name="br" type="LineBrake"/>
+                <xs:element name="sup" type="SuperScript"/>
                 <xs:element name="SU" type="SuperScript"/>
                 <xs:element name="FTREF" type="FootNoteReference"/>
+                <xs:element name="AC" type="Accent"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="Head" mixed="true">
-        <xs:sequence>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="E" type="Font"/>
-                <xs:element name="I" type="Emphasis"/>
-                <xs:element name="SU" type="SuperScript"/>
-                <xs:element name="FTREF" type="FootNoteReference"/>
-            </xs:choice>
-        </xs:sequence>
+    <xs:complexType name="ParagraphSpace">
+        <xs:complexContent>
+            <xs:extension base="ContentFormatter"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Head">
+        <xs:complexContent>
+            <xs:extension base="ContentFormatter"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Authority">
@@ -237,21 +242,16 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="Emphasis" mixed="true">
-        <xs:sequence>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="AC" type="Accent"/>
-                <xs:element name="FR" type="Fraction"/>
-                <xs:element name="fr" type="Fraction"/>
-            </xs:choice>
-        </xs:sequence>
+    <xs:complexType name="Emphasis">
+        <xs:complexContent>
+            <xs:extension base="ContentFormatter"/>
+        </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="Bold" mixed="true">
-        <xs:sequence>
-            <xs:element name="FR" type="Fraction" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="fr" type="Fraction" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
+    <xs:complexType name="Bold">
+        <xs:complexContent>
+            <xs:extension base="ContentFormatter"/>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="EditorialNote">
@@ -282,23 +282,21 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <xs:complexType name="SectionAuthority" mixed="true">
-        <xs:sequence>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="I" type="Emphasis"/>
-            </xs:choice>
-        </xs:sequence>
-        <xs:attribute name="TYPE" type="xs:string" use="required"/>
+    <xs:complexType name="SectionAuthority">
+        <xs:complexContent>
+            <xs:extension base="ContentFormatter">
+                <xs:attribute name="TYPE" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="XReference" mixed="true">
-        <xs:sequence>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="I" type="Emphasis"/>
-            </xs:choice>
-        </xs:sequence>
-        <xs:attribute name="ID" type="xs:string" use="required"/>
-        <xs:attribute name="REFID" type="xs:string" use="required"/>
+    <xs:complexType name="XReference">
+        <xs:complexContent>
+            <xs:extension base="ContentFormatter">
+                <xs:attribute name="ID" type="xs:string" use="required"/>
+                <xs:attribute name="REFID" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="CrossReference" mixed="true">
@@ -352,22 +350,12 @@
         <xs:group ref="ContentOrganizers"/>
     </xs:complexType>
 
-    <xs:complexType name="Paragraph" mixed="true">
-        <xs:sequence>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="B" type="Bold"/>
-                <xs:element name="I" type="Emphasis"/>
-                <xs:element name="FR" type="Fraction"/>
-                <xs:element name="fr" type="Fraction"/>
-                <xs:element name="E" type="Font"/>
-                <xs:element name="br" type="LineBrake"/>
-                <xs:element name="sup" type="SuperScript"/>
-                <xs:element name="SU" type="SuperScript"/>
-                <xs:element name="FTREF" type="FootNoteReference"/>
-                <xs:element name="AC" type="Accent"/>
-            </xs:choice>
-        </xs:sequence>
-        <xs:attribute ref="class"/>
+    <xs:complexType name="Paragraph">
+        <xs:complexContent>
+            <xs:extension base="ContentFormatter">
+                <xs:attribute ref="class"/>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Paragraph2" mixed="true">
