@@ -112,6 +112,7 @@
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="I" type="Emphasis"/>
                 <xs:element name="FR" type="Fraction"/>
+                <xs:element name="fr" type="Fraction"/>
                 <xs:element name="E" type="Font"/>
             </xs:choice>
         </xs:sequence>
@@ -218,6 +219,7 @@
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="AC" type="Accent"/>
                 <xs:element name="FR" type="Fraction"/>
+                <xs:element name="fr" type="Fraction"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
@@ -225,6 +227,7 @@
     <xs:complexType name="Bold" mixed="true">
         <xs:sequence>
             <xs:element name="FR" type="Fraction" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="fr" type="Fraction" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -290,6 +293,7 @@
                 <xs:element name="B" type="Bold"/>
                 <xs:element name="I" type="Emphasis"/>
                 <xs:element name="FR" type="Fraction"/>
+                <xs:element name="fr" type="Fraction"/>
                 <xs:element name="E" type="Font"/>
                 <xs:element name="br" type="LineBrake"/>
                 <xs:element name="sup" type="SuperScript"/>
