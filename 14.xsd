@@ -472,6 +472,7 @@
         <xs:sequence>
             <xs:element name="HEAD" type="Head"/>
             <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
+            <xs:element name="EFFDNOT" type="EffectiveDateNote" minOccurs="0"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="DIV7" type="SubjectGroup"/>
                 <xs:element name="DIV8" type="Section"/>
