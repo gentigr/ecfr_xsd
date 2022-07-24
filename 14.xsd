@@ -128,9 +128,9 @@
     </xs:complexType>
 
     <xs:complexType name="FootNote">
-        <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-        </xs:simpleContent>
+        <xs:sequence>
+            <xs:element name="P" type="Paragraph" maxOccurs="unbounded"/>
+        </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="SuperScript">
