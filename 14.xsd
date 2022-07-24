@@ -116,6 +116,14 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="Head" mixed="true">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="E" type="Font"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Authority">
         <xs:sequence>
             <xs:element name="HED" type="xs:string"/>
@@ -331,7 +339,7 @@
 
     <xs:complexType name="Appendix">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="FTNT" type="FootNote"/>
@@ -353,7 +361,7 @@
 
     <xs:complexType name="Section">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="P" type="Paragraph"/>
                 <xs:element name="FTNT" type="FootNote"/>
@@ -388,7 +396,7 @@
 
     <xs:complexType name="SubjectGroup">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:element name="DIV8" type="Section" maxOccurs="unbounded"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
@@ -397,7 +405,7 @@
 
     <xs:complexType name="SubPart">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element name="DIV7" type="SubjectGroup"/>
@@ -410,7 +418,7 @@
 
     <xs:complexType name="Part">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:element name="AUTH" type="Authority"></xs:element>
             <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
             <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
@@ -428,7 +436,7 @@
 
     <xs:complexType name="SubChapter">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:element name="DIV5" type="Part" maxOccurs="unbounded"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
@@ -437,7 +445,7 @@
 
     <xs:complexType name="Chapter">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:element name="DIV4" type="SubChapter" maxOccurs="unbounded"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
@@ -446,7 +454,7 @@
 
     <xs:complexType name="Subtitle">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:element name="DIV3" type="Chapter" maxOccurs="unbounded"></xs:element>
         </xs:sequence>
         <xs:attribute name="N" type="xs:string" use="required"/>
@@ -455,7 +463,7 @@
 
     <xs:complexType name="Title">
         <xs:sequence>
-            <xs:element name="HEAD" type="xs:string"></xs:element>
+            <xs:element name="HEAD" type="Head"/>
             <xs:choice>
                 <xs:element name="DIV2" type="Subtitle" maxOccurs="unbounded"></xs:element>
                 <xs:element name="DIV3" type="Chapter" maxOccurs="unbounded"></xs:element>
