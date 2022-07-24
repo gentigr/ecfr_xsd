@@ -256,6 +256,7 @@
             <xs:element name="SOURCE" type="Authority" minOccurs="0"/>
             <xs:element name="EDNOTE" type="EditorialNote" minOccurs="0"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="DIV9" type="Appendix" maxOccurs="unbounded"/>
                 <xs:element name="DIV6" type="SubPart" maxOccurs="unbounded"></xs:element>
                 <xs:element name="DIV8" type="Section" maxOccurs="unbounded"></xs:element>
             </xs:choice>
