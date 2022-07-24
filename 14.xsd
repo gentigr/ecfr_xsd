@@ -219,6 +219,7 @@
                 <xs:element name="E" type="Font"/>
                 <xs:element name="br" type="LineBrake"/>
                 <xs:element name="sup" type="SuperScript"/>
+                <xs:element name="SU" type="SuperScript"/>
             </xs:choice>
         </xs:sequence>
         <xs:attribute ref="class"/>
